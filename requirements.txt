@@ -1,0 +1,7 @@
+Fabric==1.8.3
+boto==2.27.0
+ecdsa==0.11
+paramiko==1.12.3
+pep8==1.5.6
+pycrypto==2.6.1
+wsgiref==0.1.2

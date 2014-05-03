@@ -1,0 +1,22 @@
+---
+driver:
+  name: vagrant
+  # Relative paths in synced folders are relative to the Vagrantfile;
+  # see https://github.com/test-kitchen/kitchen-vagrant/issues/70.
+  synced_folders: 
+    - ['../../../../mirage-lanyon', '/home/vagrant/mirage-lanyon']
+  network:
+    - ["forwarded_port", {guest: 80, host: 8080}]
+  
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-12.04
+
+suites:
+  - name: default
+    run_list:
+      - recipe[apt]
+      - recipe[mirage-jekyll::default]
+    attributes:
